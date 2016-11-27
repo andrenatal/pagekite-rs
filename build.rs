@@ -47,9 +47,9 @@ fn build(output: &str) {
         }
     }
 
-    // If Makefile doesn't exist or is older than configure run configure
-    if doesnt_exists_or_older!("Makefile", "configure") {
-        let exit_code = Command::new("./configure")
+    // We always run configure to setup a new installation prefix if needed
+    // when switching from debug and release Rust targets.
+    let exit_code = Command::new("./configure")
             .env("CFLAGS", "-fPIC") // Needed to build the static library as PIC.
             .arg(format!("--prefix={}", output))
             .arg(format!("--without-java"))
@@ -57,12 +57,12 @@ fn build(output: &str) {
             .current_dir("libpagekite")
             .status().unwrap();
 
-        if !exit_code.success() {
-            panic!("Failed to run libpagekite/configure");
-        }
+    if !exit_code.success() {
+        panic!("Failed to run libpagekite/configure");
     }
 
     // We don't pass -j parameter to `make` because the build fails with this option.
+    // See https://github.com/pagekite/libpagekite/pull/28
     let exit_code = Command::new("make")
         .arg("install")
         .current_dir("libpagekite")
