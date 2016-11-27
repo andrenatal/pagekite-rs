@@ -53,7 +53,7 @@ fn build(output: &str) {
             .env("CFLAGS", "-fPIC") // Needed to build the static library as PIC.
             .arg(format!("--prefix={}", output))
             .arg(format!("--without-java"))
-            //.arg(format!("--host={}", env::var("TARGET_TRIPLE").unwrap_or(env::var("TARGET").unwrap())))
+            .arg(format!("--host={}", env::var("TARGET_TRIPLE").unwrap_or(env::var("TARGET").unwrap())))
             .current_dir("libpagekite")
             .status().unwrap();
 
