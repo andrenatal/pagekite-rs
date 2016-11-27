@@ -1,0 +1,3 @@
+[submodule "libpagekite"]
+	path = libpagekite
+	url = https://github.com/fabricedesre/libpagekite.git
