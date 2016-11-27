@@ -1,0 +1,9 @@
+language: rust
+rust:
+  - stable
+  - nightly
+
+addons:
+  apt:
+    packages:
+    - libev-dev
