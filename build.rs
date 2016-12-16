@@ -75,7 +75,7 @@ fn build(output: &str) {
     // See https://github.com/pagekite/libpagekite/pull/28
     let exit_code = Command::new("make")
         .arg("install")
-        .current_dir("libpagekite")
+        .current_dir("libpagekite/libpagekite")
         .status()
         .unwrap();
 
