@@ -46,7 +46,7 @@ pub enum VerbosityFlags {
 pub enum Status {
     Startup = 10,
     Connecting = 20,
-    UpdatinDns = 30,
+    UpdatingDns = 30,
     Flying = 40,
     PROProblems = 50,
     Rejected = 60,
