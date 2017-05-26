@@ -91,6 +91,8 @@ pub struct PageKite {
     inner: pagekite_mgr,
 }
 
+unsafe impl Send for PageKite {}
+
 macro_rules! str_cstring(
     ($a:ident) => ( CString::new($a).unwrap().as_ptr() )
 );
