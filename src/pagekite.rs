@@ -86,6 +86,7 @@ pub static LOG_ALL: [VerbosityFlags; 13] = [VerbosityFlags::LogTunnelData,
                                             VerbosityFlags::LogLuaInfo,
                                             VerbosityFlags::LogError];
 
+#[derive(Clone)]
 pub struct PageKite {
     inner: pagekite_mgr,
 }
