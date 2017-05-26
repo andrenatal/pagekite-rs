@@ -86,11 +86,12 @@ fn build(output: &str) {
 
 fn get_brew_lib(lib: &str) -> String {
     String::from_utf8(Command::new("brew")
-        .arg("--prefix")
-        .arg(lib)
-        .output()
-        .expect(format!("failed to find {} via brew", lib).as_str())
-        .stdout).unwrap()
+                          .arg("--prefix")
+                          .arg(lib)
+                          .output()
+                          .expect(format!("failed to find {} via brew", lib).as_str())
+                          .stdout)
+            .unwrap()
 }
 
 #[allow(unused_must_use)]
@@ -106,6 +107,7 @@ fn main() {
     // No pkg-config support for libev unfortunately.
     println!("cargo:rustc-link-lib=ev");
 
-    println!("cargo:rustc-link-search=native={}/lib", libpagekite_build_dir);
+    println!("cargo:rustc-link-search=native={}/lib",
+             libpagekite_build_dir);
     println!("cargo:rustc-link-lib=dylib=pagekite");
 }

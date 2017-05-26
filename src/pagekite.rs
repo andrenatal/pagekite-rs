@@ -211,14 +211,14 @@ impl PageKite {
                     -> bool {
 
         return unsafe {
-            pagekite_add_kite(self.inner,
-                              str_cstring!(proto),
-                              str_cstring!(kitename),
-                              public_port,
-                              str_cstring!(secret),
-                              str_cstring!(backend),
-                              local_port)
-        } == 0;
+                   pagekite_add_kite(self.inner,
+                                     str_cstring!(proto),
+                                     str_cstring!(kitename),
+                                     public_port,
+                                     str_cstring!(secret),
+                                     str_cstring!(backend),
+                                     local_port)
+               } == 0;
     }
 
     /// Useful flags are WithDefaults, WithIpv4, WithIpv6, WithDynamicFeList

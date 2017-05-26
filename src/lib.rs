@@ -18,7 +18,7 @@ fn sanity_check() {
                                 None,
                                 &[InitFlags::WithDefaults],
                                 &LOG_ALL)
-            .unwrap();
+                .unwrap();
         pk.enable_fake_ping(true);
         pk.enable_http_forwarding_headers(true);
         pk.thread_start();
